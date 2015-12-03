@@ -234,9 +234,9 @@ namespace MediaRss.Primary
 			if (FrameRate > 0) writer.WriteAttributeString("framerate", null, FrameRate.ToString());
 			if (SamplingRate > 0) writer.WriteAttributeString("samplingrate", null, SamplingRate.ToString());
 			if (Channels > 0) writer.WriteAttributeString("channels", null, Channels.ToString());
-			if (Duration > 0) writer.WriteAttributeString("height", null, Height.ToString());
-			if (Duration > 0) writer.WriteAttributeString("width", null, Width.ToString());
 			if (Duration > TimeSpan.Zero) writer.WriteAttributeString("duration", null, ((int)Duration.TotalSeconds).ToString());
+			if (Height > 0) writer.WriteAttributeString("height", null, Height.ToString());
+			if (Width > 0) writer.WriteAttributeString("width", null, Width.ToString());
 			if (string.IsNullOrEmpty(Language)) writer.WriteAttributeString("lang", null, Language);
 
 			foreach (var kvp in AttributeExtensions)
