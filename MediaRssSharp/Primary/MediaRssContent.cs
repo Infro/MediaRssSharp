@@ -16,7 +16,7 @@ namespace MediaRss.Primary
 		private bool? _isDefault;
 		private double _samplingRate;
 		private int _channels;
-		private int _duration;
+		private TimeSpan _duration;
 		private int _height;
 		private int _width;
 		private string _language;
@@ -73,8 +73,8 @@ namespace MediaRss.Primary
 			get { return _channels; }
 			set { _channels = value; }
 		}
-			 
-		public Int32 Duration
+
+		public TimeSpan Duration
 		{
 			get { return _duration; }
 			set { _duration = value; }
@@ -158,7 +158,9 @@ namespace MediaRss.Primary
 								Int32.TryParse(reader.Value, out _channels);
 								break;
 							case "duration":
-								Int32.TryParse(reader.Value, out _duration);
+								int duration;
+								Int32.TryParse(reader.Value, out duration);
+								_duration = TimeSpan.FromSeconds(duration);
 								break;
 							case "height":
 								Int32.TryParse(reader.Value, out _height);
@@ -232,9 +234,9 @@ namespace MediaRss.Primary
 			if (FrameRate > 0) writer.WriteAttributeString("framerate", null, FrameRate.ToString());
 			if (SamplingRate > 0) writer.WriteAttributeString("samplingrate", null, SamplingRate.ToString());
 			if (Channels > 0) writer.WriteAttributeString("channels", null, Channels.ToString());
-			if (Duration > 0) writer.WriteAttributeString("duration", null, Duration.ToString());
 			if (Duration > 0) writer.WriteAttributeString("height", null, Height.ToString());
 			if (Duration > 0) writer.WriteAttributeString("width", null, Width.ToString());
+			if (Duration > TimeSpan.Zero) writer.WriteAttributeString("duration", null, ((int)Duration.TotalSeconds).ToString());
 			if (string.IsNullOrEmpty(Language)) writer.WriteAttributeString("lang", null, Language);
 
 			foreach (var kvp in AttributeExtensions)
