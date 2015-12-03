@@ -176,6 +176,12 @@ namespace MediaRss.Primary
 				optionalElements.ThumbnailNode.WriteXml(writer);
 				writer.WriteEndElement();
 			}
+			foreach (var item in optionalElements.GeneralElements)
+			{
+				writer.WriteStartElement(item.Key);
+				writer.WriteString(item.Value);
+				writer.WriteEndElement();
+			}
 		}
 	}
 }

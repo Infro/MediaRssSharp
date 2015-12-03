@@ -19,5 +19,11 @@ namespace MediaRss.Primary
 		public Scenes ScenesNode { get; set; }
 		public Description DescriptionNode { get; set; }
         public Thumbnail ThumbnailNode { get; set; }
+        public Dictionary<string, string> GeneralElements { get; private set; }
+
+        public MrssOptionalElements()
+        {
+            GeneralElements = new Dictionary<string, string>();
+        }
     }
 }
