@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MediaRss.Optional;
 
 namespace MediaRss.Primary
 {
@@ -17,5 +18,6 @@ namespace MediaRss.Primary
 		public Status StatusNode { get; set; }
 		public Scenes ScenesNode { get; set; }
 		public Description DescriptionNode { get; set; }
-	}
+        public Thumbnail ThumbnailNode { get; set; }
+    }
 }

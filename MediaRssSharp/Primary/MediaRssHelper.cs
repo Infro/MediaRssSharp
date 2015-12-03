@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml;
+using MediaRss.Optional;
 
 namespace MediaRss.Primary
 {
@@ -80,6 +81,11 @@ namespace MediaRss.Primary
 					case Description.ELEMENT_NAME:
 						optionalElements.DescriptionNode = new Description();
 						optionalElements.DescriptionNode.ReadXml(reader);
+						parsed = true;
+						break;
+					case Thumbnail.ELEMENT_NAME:
+						optionalElements.ThumbnailNode = new Thumbnail();
+						optionalElements.ThumbnailNode.ReadXml(reader);
 						parsed = true;
 						break;
 				}
@@ -162,6 +168,12 @@ namespace MediaRss.Primary
 			{
 				writer.WriteStartElement(MediaRssBase.PREFIX, Status.ELEMENT_NAME, MediaRssBase.NS_URI);
 				optionalElements.StatusNode.WriteXml(writer);
+				writer.WriteEndElement();
+			}
+			if (optionalElements.ThumbnailNode != null)
+			{
+				writer.WriteStartElement(MediaRssBase.PREFIX, Thumbnail.ELEMENT_NAME, MediaRssBase.NS_URI);
+				optionalElements.ThumbnailNode.WriteXml(writer);
 				writer.WriteEndElement();
 			}
 		}
