@@ -40,7 +40,7 @@ namespace MediaRss.Primary
 		}
 
 		public String Type { get; set; }
-		public String Medium { get; set; }
+		public MediaType Medium { get; set; }
 
 		public bool? IsDefault
 		{
@@ -135,7 +135,7 @@ namespace MediaRss.Primary
 								Type = reader.Value;
 								break;
 							case "medium":
-								Medium = reader.Value;
+								Medium = (MediaType)Enum.Parse(typeof(MediaType), reader.Value);
 								break;
 							case "isDefault":
 								bool tmpBool;
@@ -196,7 +196,7 @@ namespace MediaRss.Primary
 			builder.AppendFormat("Url: {0}\n", Url);
 			builder.AppendFormat("FileSize: {0}\n", FileSize);
 			builder.AppendFormat("Type: {0}\n", Type);
-			builder.AppendFormat("Medium: {0}\n", Medium);
+			builder.AppendFormat("Medium: {0}\n", Medium.ToString("G"));
 			builder.AppendFormat("IsDefault: {0}\n", IsDefault);
 			builder.AppendFormat("Expression: {0}\n", Expression);
 			builder.AppendFormat("BitRate: {0}\n", BitRate);
@@ -225,7 +225,7 @@ namespace MediaRss.Primary
 			if (Url != null) writer.WriteAttributeString("url", null, Url.ToString());
 			if (FileSize > 0) writer.WriteAttributeString("filesize", null, FileSize.ToString());
 			if (string.IsNullOrEmpty(Type) == false) writer.WriteAttributeString("type", null, Type);
-			if (string.IsNullOrEmpty(Medium) == false) writer.WriteAttributeString("medium", null, Medium);
+			if (Medium != MediaType.none) writer.WriteAttributeString("medium", null, Medium.ToString("G"));
 			if (IsDefault.HasValue) writer.WriteAttributeString("isDefault", null, IsDefault.Value.ToString());
 			if (Expression != null) writer.WriteAttributeString("expression", null, Expression);
 			if (BitRate > 0) writer.WriteAttributeString("bitrate", null, BitRate.ToString());

@@ -52,6 +52,7 @@
     <Compile Include="Primary\MediaRssGroup.cs" />
     <Compile Include="Primary\IMrssPrimaryElement.cs" />
     <Compile Include="Primary\MediaRssHelper.cs" />
+    <Compile Include="Primary\MediaType.cs" />
     <Compile Include="Primary\MrssOptionalElements.cs" />
     <Compile Include="Responses.cs" />
     <Compile Include="Restriction.cs" />
