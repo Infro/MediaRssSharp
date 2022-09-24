@@ -6,67 +6,6 @@
     <AssemblyName>MediaRss</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
-<<<<<<< HEAD
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Backlink.cs" />
-    <Compile Include="Description.cs" />
-    <Compile Include="MediaRssBase.cs" />
-    <Compile Include="Comment.cs" />
-    <Compile Include="Backlinks.cs" />
-    <Compile Include="Comments.cs" />
-    <Compile Include="Community.cs" />
-    <Compile Include="Embed.cs" />
-    <Compile Include="License.cs" />
-    <Compile Include="PeerLink.cs" />
-    <Compile Include="Price.cs" />
-    <Compile Include="Primary\MediaRssGroup.cs" />
-    <Compile Include="Primary\IMrssPrimaryElement.cs" />
-    <Compile Include="Primary\MediaRssHelper.cs" />
-    <Compile Include="Primary\MediaType.cs" />
-    <Compile Include="Primary\MrssOptionalElements.cs" />
-    <Compile Include="Primary\Thumbnail.cs" />
-    <Compile Include="Responses.cs" />
-    <Compile Include="Restriction.cs" />
-    <Compile Include="Primary\MediaRssItem.cs" />
-    <Compile Include="MediaRssFeed.cs" />
-    <Compile Include="Scenes.cs" />
-    <Compile Include="Status.cs" />
-    <Compile Include="SubTitle.cs" />
-    <Compile Include="Parameter.cs" />
-    <Compile Include="Response.cs" />
-    <Compile Include="SceneElement.cs" />
-    <Compile Include="Statistics.cs" />
-    <Compile Include="Primary\MediaRssContent.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StarRating.cs" />
-    <Compile Include="Tags.cs" />
-  </ItemGroup>
-=======
->>>>>>> a806bb8 (Upgrade Assistant)
   <ItemGroup>
     <Folder Include="Optional\" />
   </ItemGroup>
